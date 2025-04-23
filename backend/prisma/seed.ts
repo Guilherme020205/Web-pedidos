@@ -20,6 +20,20 @@ async function main() {
     })
   }
 
+  const positionList = [
+    'Gerente',
+    'Almoxarife',
+    'Usuario padrão'
+  ]
+
+  for (const name of positionList) {
+    await prisma.position.upsert({
+      where: { name },
+      update: {},
+      create: { name },
+    })
+  }
+
   console.log('Seed concluído com sucesso!')
 }
 

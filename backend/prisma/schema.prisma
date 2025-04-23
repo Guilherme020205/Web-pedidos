@@ -14,29 +14,30 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  name     String
-  email    String   @unique
-  user     String
-  password String
-  position String
-  orders   Order[]
-  isActive Boolean  @default(true)
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt // @upDatedAt atualiza o registro após uma mudança nos dados
+  id         Int       @id @default(autoincrement())
+  name       String
+  email      String    @unique
+  user       String
+  Position   Position? @relation(fields: [positionId], references: [id])
+  positionId Int?
+  password   String
+  orders     Order[]
+  isActive   Boolean   @default(true)
+  createAt   DateTime  @default(now())
+  updateAt   DateTime  @updatedAt // @upDatedAt atualiza o registro após uma mudança nos dados
 
   // caso queira colocar um "apelido" no nome da tabela podemos por com @@map("...")
   @@map("users")
 }
 
 model Order {
-  id          Int         @id @default(autoincrement())
-  statusId    Int
-  status      Status      @relation(fields: [statusId], references: [id])
-  userId      Int
-  user        User        @relation(fields: [userId], references: [id])
-  items       OrderItem[]
-  
+  id       Int         @id @default(autoincrement())
+  statusId Int
+  status   Status      @relation(fields: [statusId], references: [id])
+  userId   Int
+  user     User        @relation(fields: [userId], references: [id])
+  items    OrderItem[]
+
   description String
   observation String
 
@@ -70,4 +71,14 @@ model Status {
   updateAt DateTime @updatedAt
 
   @@map("status")
+}
+
+model Position {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  users    User[]
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  @@map("position")
 }
