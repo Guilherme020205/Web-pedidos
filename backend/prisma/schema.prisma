@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String   @unique
+  user     String
+  password String
+  position String
+  orders   Order[]
+  isActive Boolean  @default(true)
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt // @upDatedAt atualiza o registro após uma mudança nos dados
+
+  // caso queira colocar um "apelido" no nome da tabela podemos por com @@map("...")
+  @@map("users")
+}
+
+model Order {
+  id          Int         @id @default(autoincrement())
+  statusId    Int
+  status      Status      @relation(fields: [statusId], references: [id])
+  userId      Int
+  user        User        @relation(fields: [userId], references: [id])
+  items       OrderItem[]
+  
+  description String
+  observation String
+
+  receipt_date DateTime
+  return_date  DateTime
+
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id       Int    @id @default(autoincrement())
+  orderId  Int
+  name     String
+  quantity Int
+
+  order    Order    @relation(fields: [orderId], references: [id])
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  @@map("orderItens")
+}
+
+model Status {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  orders   Order[] // um status pode estar em vários pedidos
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  @@map("status")
+}
