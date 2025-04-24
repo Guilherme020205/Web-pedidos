@@ -4,6 +4,9 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
+// npx prisma migrate dev --name add-campo-telefone-user
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,7 +20,7 @@ model User {
   id         Int       @id @default(autoincrement())
   name       String
   email      String    @unique
-  user       String
+  user       String    @unique
   Position   Position? @relation(fields: [positionId], references: [id])
   positionId Int?
   password   String
