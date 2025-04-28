@@ -13,15 +13,20 @@ import { ControllerCreatUser } from './Controller/User/ControllerCreatUser';
 import { ControllerListOneUser } from './Controller/User/ControllerListOneUser';
 import { ControllerEditUser } from './Controller/User/ControllerEditUser';
 import { ControllerLogin } from './Controller/Login/ControllerLogin';
+import { ControllerCreatOrder } from './Controller/Orders/ControllerCreatOrder';
+import { ControllerListOrders } from './Controller/Orders/ControllerListOrders';
 
-router.get("/list/status", new ControllerListStatus().handle)
-router.get("/list/positions", new ControllerListPositions().handle)
+router.get("/status/list", new ControllerListStatus().handle)
+router.get("/positions/list", new ControllerListPositions().handle)
 
 router.post("/login", new ControllerLogin().handle)
 
-router.post("/creat/user", authenticate, new ControllerCreatUser().handle);
-router.put("/edit/user/:idUser", authenticate, new ControllerEditUser().handle)
-router.get("/list/users", authenticate, new ControllerListUsers().handle)
-router.get("/list/user/:idUser", authenticate, new ControllerListOneUser().handle)
+router.post("/user/creat", authenticate, new ControllerCreatUser().handle);
+router.put("/user/edit/:idUser", authenticate, new ControllerEditUser().handle)
+router.get("/user/list", authenticate, new ControllerListUsers().handle)
+router.get("/user/list/:idUser", authenticate, new ControllerListOneUser().handle)
+
+router.post("/order/creat", authenticate, new ControllerCreatOrder().handle)
+router.get("/order/list", authenticate, new ControllerListOrders().handle)
 
 export = router;
