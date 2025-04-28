@@ -9,10 +9,24 @@ class ControllerEditUser {
         const { name, email, user, positionId, password, isActive } = req.body;
 
         try {
-            const hashedPassword = await bcrypt.hash(password, 10);
+            // const hashedPassword = await bcrypt.hash(password, 10);
+            let updatedPassword = undefined;
+
+            if (password) {
+                updatedPassword = await bcrypt.hash(password, 10);
+            }
+            
             const response = await prisma.user.update({
                 where: { id: Number(idUser) },
-                data: { name, email, user, positionId, password: hashedPassword, isActive }
+                data: {
+                    name,
+                    email,
+                    user,
+                    positionId,
+                    ...(updatedPassword && { password: updatedPassword }),
+                    // password: hashedPassword,
+                    isActive
+                }
             })
 
             res.status(201).json(response)

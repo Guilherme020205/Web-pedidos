@@ -5,9 +5,7 @@ class ControllerCreatOrder {
     async handle(req: Request, res: Response) : Promise<void> {
         const { statusId, description, observation, receipt_date, return_date, items } = req.body;
         const userId = req.userId;
-        if (!userId) {
-            res.status(401).json({ error: 'Usuário não autenticado' });
-        }
+        
         try {
             const response = await prisma.order.create({
                 data: {

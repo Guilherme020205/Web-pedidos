@@ -1,16 +1,19 @@
 import { Request, Response } from 'express';
 import prisma from '../../database';
-class ControllerEditStatusOrder {
+
+class ControllerEditOrder {
     async handle(req: Request, res: Response) {
         const { idOrder } = req.params;
-        const { newStatus } = req.body;
+        const { statusId, observation } = req.body;
+
         try {
             const response = await prisma.order.update({
                 where: {
                     id: Number(idOrder)
                 },
                 data: {
-                    statusId: newStatus
+                    statusId, 
+                    observation
                 }
             })
 
@@ -20,6 +23,7 @@ class ControllerEditStatusOrder {
             res.status(500).json(error)
         }
     }
+
 }
 
-export { ControllerEditStatusOrder }
+export { ControllerEditOrder }
