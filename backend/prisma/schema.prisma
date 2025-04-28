@@ -41,8 +41,8 @@ model Order {
   user     User        @relation(fields: [userId], references: [id])
   items    OrderItem[]
 
-  description String
-  observation String
+  description String // Esse apenas para o cliente 
+  observation String // Esse apenas para quem for atualizar pedido pode escrever algo ali 
 
   receipt_date DateTime
   return_date  DateTime
