@@ -1,10 +1,10 @@
 -- CreateTable
 CREATE TABLE "users" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "user" TEXT NOT NULL,
-    "positionId" INTEGER,
+    "positionId" TEXT,
     "password" TEXT NOT NULL,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -15,9 +15,9 @@ CREATE TABLE "users" (
 
 -- CreateTable
 CREATE TABLE "orders" (
-    "id" SERIAL NOT NULL,
-    "statusId" INTEGER NOT NULL,
-    "userId" INTEGER NOT NULL,
+    "id" TEXT NOT NULL,
+    "statusId" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "observation" TEXT NOT NULL,
     "receipt_date" TIMESTAMP(3) NOT NULL,
@@ -30,8 +30,8 @@ CREATE TABLE "orders" (
 
 -- CreateTable
 CREATE TABLE "orderItens" (
-    "id" SERIAL NOT NULL,
-    "orderId" INTEGER NOT NULL,
+    "id" TEXT NOT NULL,
+    "orderId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -42,7 +42,7 @@ CREATE TABLE "orderItens" (
 
 -- CreateTable
 CREATE TABLE "status" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE "status" (
 
 -- CreateTable
 CREATE TABLE "position" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3) NOT NULL,
@@ -62,6 +62,9 @@ CREATE TABLE "position" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_user_key" ON "users"("user");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "status_name_key" ON "status"("name");

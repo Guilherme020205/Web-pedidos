@@ -9,7 +9,7 @@ class ControllerListOneUser {
             
             const response = await prisma.user.findUnique({
                 where: {
-                    id: Number(idUser)
+                    id: idUser
                 }
             })
             if (!response) {

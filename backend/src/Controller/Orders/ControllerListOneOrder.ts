@@ -9,7 +9,7 @@ class ControllerListOneOrder {
             
             const response = await prisma.order.findUnique({
                 where: {
-                    id: Number(idOrder)
+                    id: idOrder
                 }, 
                 include: {
                     items: true, 

@@ -2,14 +2,18 @@ import { Response, Request } from 'express';
 import prisma from '../../database';
 
 class ControllerCreatOrder {
-    async handle(req: Request, res: Response) : Promise<void> {
+    async handle(req: Request, res: Response): Promise<void> {
         const { statusId, description, observation, receipt_date, return_date, items } = req.body;
         const userId = req.userId;
-        
+        if (!userId) {
+            res.status(400).json({ error: 'Usuário não autenticado' });
+            return;
+        }
+
         try {
             const response = await prisma.order.create({
                 data: {
-                    userId: userId as number,
+                    userId,
                     statusId,
                     description,
                     observation,
@@ -26,6 +30,7 @@ class ControllerCreatOrder {
                     items: true
                 }
             });
+
 
             res.status(201).json(response);
         } catch (error) {

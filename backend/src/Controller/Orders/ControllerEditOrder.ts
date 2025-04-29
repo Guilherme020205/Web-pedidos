@@ -9,7 +9,7 @@ class ControllerEditOrder {
         try {
             const response = await prisma.order.update({
                 where: {
-                    id: Number(idOrder)
+                    id: idOrder
                 },
                 data: {
                     statusId, 

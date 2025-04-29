@@ -26,6 +26,12 @@ class ControllerLogin {
                 res.status(401).json({ error: 'Password incorrect' });
             }
             
+            const userActive = await userExist.isActive
+            
+            if(!userActive){
+                res.status(401).json({ error: 'User Inative' });
+            }
+
             const token = jwt.sign(
                 { userId: userExist.id },
                 process.env.JWT_SECRET as string,

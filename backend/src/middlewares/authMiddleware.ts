@@ -8,12 +8,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 interface JwtPayload {
-  userId: number;
+  userId: string;
 }
 
 declare module 'express-serve-static-core' {
   interface Request {
-    userId?: number;
+    userId?: string;
   }
 }
 

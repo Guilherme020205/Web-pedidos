@@ -17,7 +17,7 @@ class ControllerEditUser {
             }
             
             const response = await prisma.user.update({
-                where: { id: Number(idUser) },
+                where: { id: idUser },
                 data: {
                     name,
                     email,
