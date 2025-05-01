@@ -10,6 +10,7 @@ import HeaderWithLayout from "./components/HeaderWithLayout";
 
 import ScreenLogin from "./pages/login/index";
 import ScreenHome from "./pages/home";
+import Teste from "./pages/teste";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<ScreenLogin />} />
+          <Route path="/teste" element={<Teste />} />
           <Route
             path="/home"
             element={
