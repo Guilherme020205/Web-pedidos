@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "./../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-function ScreenHome() {
+ function ScreenHome() {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
