@@ -1,13 +1,31 @@
+import React from "react";
+
+import { AuthProvider } from "./context/AuthContext";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import ScreenLogin from './pages/login/index';
+import ScreenHome from "./pages/home";
+
 function App() {
   return (
-    <div className="w-52">
-      <div className="flex flex-row">
-        <p className="bg-red-300 w-full flex justify-center">1</p>
-        <p className="bg-green-300 w-full flex justify-center">2</p>
-      </div>
-      <p className="bg-gray-400 flex justify-center">3</p>
-    </div>
-  );
+    <AuthProvider>
+        <Router>
+            <Routes>
+                <Route path="/login" element={<ScreenLogin />} />
+                <Route 
+                    path="/home" 
+                    element={
+                        <ProtectedRoute>
+                            <ScreenHome />
+                        </ProtectedRoute>
+                    } 
+                />
+            </Routes>
+        </Router>
+    </AuthProvider>
+);
 }
-
 export default App;
