@@ -25,7 +25,7 @@ const Header = () => {
           icon: "pi pi-sign-out",
           command: () => {
             logout();
-            navigate("/login");
+            navigate("/");
           },
         },
       ],
