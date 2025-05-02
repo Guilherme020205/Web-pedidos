@@ -1,0 +1,9 @@
+.p-menuitem-link {
+  gap: 5px;
+  padding: 5px;
+  border-radius: 4px; 
+}
+
+.p-menuitem-link:hover {
+  background-color: #bfdbfe; /* Amarelo */
+}
