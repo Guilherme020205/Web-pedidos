@@ -9,31 +9,43 @@ dotenv.config();
 class ControllerLogin {
     async handle(req: Request, res: Response) {
         const { username, password } = req.body;
+
         try {
             const userExist = await prisma.user.findUnique({
                 where: {
                     user: username
+                },
+                include: {
+                    Position: true // traz o nome do cargo
                 }
-            })
-            if(!userExist) {
-                res.status(404).json({error: 'The user does not exist'});
-                return;
+            });
+
+            if (!userExist) {
+                res.status(404).json({ error: 'The user does not exist' });
+                return
             }
-            
+
             const passwordValid = await bcrypt.compare(password, userExist.password);
-            
-            if(!passwordValid){
+            if (!passwordValid) {
                 res.status(401).json({ error: 'Password incorrect' });
+                return
+
             }
-            
-            const userActive = await userExist.isActive
-            
-            if(!userActive){
-                res.status(401).json({ error: 'User Inative' });
+
+            const userActive = userExist.isActive;
+            if (!userActive) {
+                res.status(401).json({ error: 'User inactive' });
+                return
+
             }
 
             const token = jwt.sign(
-                { userId: userExist.id },
+                {
+                    userId: userExist.id,
+                    name: userExist.name,
+                    email: userExist.email,
+                    cargo: userExist.Position?.name || 'sem cargo'
+                },
                 process.env.JWT_SECRET as string,
                 { expiresIn: '30d' }
             );
@@ -45,4 +57,4 @@ class ControllerLogin {
     }
 }
 
-export { ControllerLogin }
+export { ControllerLogin };
