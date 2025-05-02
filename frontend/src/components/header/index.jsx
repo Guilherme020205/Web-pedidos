@@ -2,10 +2,11 @@ import React, { useRef, useContext } from "react";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
 import { Toast } from "primereact/toast";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "primeicons/primeicons.css";
-import "./cssmenu.css";
+
 import { AuthContext } from "../../context/AuthContext";
+import ButtonsNavigate from "./buttonsNavigate";
 
 const logo = "";
 
@@ -31,39 +32,14 @@ const Header = () => {
     },
   ];
 
-  const location = useLocation();
-
   return (
     <div className="bg-blue-300 h-11 flex flex-row justify-between items-center px-[5%]">
       {logo ? <img src={logo} alt="logo" className="w-32" /> : <p>Logo</p>}
+
       <div className="flex flex-row gap-4">
-        <Link
-          to="/home"
-          className={`p-[6px] rounded-full hover:bg-blue-100 ${
-            location.pathname === "/home" ? "bg-white" : ""
-          }`}
-        >
-          <i className="pi pi-home text-xl"></i>
-        </Link>
-
-        <Link
-          to="/"
-          className={`p-[6px] rounded-full hover:bg-blue-100 ${
-            location.pathname === "/" ? "bg-white" : ""
-          }`}
-        >
-          <i className="pi pi-users text-xl"></i>
-        </Link>
-
-        <Link
-          to="/"
-          className={`p-[6px] rounded-full hover:bg-blue-100 ${
-            location.pathname === "/" ? "bg-white" : ""
-          }`}
-        >
-          <i className="pi pi-book text-xl"></i>
-        </Link>
+        <ButtonsNavigate/>
       </div>
+
       <div>
         <div className="card flex justify-content-center">
           <Toast ref={toast}></Toast>

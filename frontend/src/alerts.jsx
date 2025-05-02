@@ -3,7 +3,7 @@ import { Slide, Zoom, Flip, Bounce } from "react-toastify";
 
 const timer = 8000;
 
-export function msgError(text: string) {
+export function msgError(text) {
   toast.error(text, {
     position: "top-right",
     autoClose: timer,
@@ -11,7 +11,7 @@ export function msgError(text: string) {
   });
 }
 
-export function msgSuccess(text: string) {
+export function msgSuccess(text) {
   toast.success(text, {
     position: "top-right",
     autoClose: timer,
@@ -19,7 +19,7 @@ export function msgSuccess(text: string) {
   });
 }
 
-export function msgInfo(text: string) {
+export function msgInfo(text ) {
   toast.info(text, {
     position: "top-right",
     autoClose: timer,
@@ -27,21 +27,21 @@ export function msgInfo(text: string) {
   });
 }
 
-export function msgDark(text: string) {
-  toast.dark("Hey 👋!", {
+export function msgDark(text ) {
+  toast.dark(text, {
     position: "top-right",
     autoClose: timer,
     transition: Flip,
   });
 }
-export function msgWarn(text: string) {
+export function msgWarn(text ) {
   toast.warn(text, {
     position: "top-right",
     autoClose: timer,
     transition: Flip,
   });
 }
-export function msgLoading(text: string) {
+export function msgLoading(text ) {
   toast.loading(text, {
     position: "top-right",
     autoClose: timer,
