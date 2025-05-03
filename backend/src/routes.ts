@@ -15,6 +15,7 @@ import { ControllerEditUser } from './Controller/User/ControllerEditUser';
 import { ControllerLogin } from './Controller/Login/ControllerLogin';
 import { ControllerCreatOrder } from './Controller/Orders/ControllerCreatOrder';
 import { ControllerListOrders } from './Controller/Orders/ControllerListOrders';
+import { ControllerListMyOrders } from './Controller/Orders/ControllerListMyOrders';
 import { ControllerListOneOrder } from './Controller/Orders/ControllerListOneOrder';
 import { ControllerEditOrder } from './Controller/Orders/ControllerEditOrder';
  
@@ -30,6 +31,7 @@ router.get("/user/list/:idUser", authenticate, new ControllerListOneUser().handl
 
 router.post("/order/creat", authenticate, new ControllerCreatOrder().handle)
 router.get("/order/list", authenticate, new ControllerListOrders().handle)
+router.get("/order/list/my/:idUser", authenticate, new ControllerListMyOrders().handle)
 router.get("/order/list/:idOrder", authenticate, new ControllerListOneOrder().handle)
 router.put("/order/edit/:idOrder", authenticate, new ControllerEditOrder().handle)
 

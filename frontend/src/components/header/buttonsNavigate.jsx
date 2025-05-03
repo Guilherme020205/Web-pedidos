@@ -7,8 +7,10 @@ import { useUserPosition } from './../../context/PositionValidation';
 const ButtonsNavigate = () => { 
   const cargo = useUserPosition();
   const location = useLocation(); 
+
+
   return (
-    <>
+    <> 
       <Link
         to="/home"
         className={`p-[6px] rounded-full hover:bg-blue-100 ${
@@ -20,19 +22,19 @@ const ButtonsNavigate = () => {
 
       {cargo !== "u" && (
       <Link
-        to="/"
+        to="/home/user"
         className={
           `p-[6px] rounded-full hover:bg-blue-100 ${
-          location.pathname === "/" ? "bg-white" : ""
+          location.pathname === "/home/user" ? "bg-white" : ""
         }`}
       >
         <i className="pi pi-users text-xl"></i>
       </Link>
       )}
       <Link
-        to="/"
+        to="/home/order"
         className={`p-[6px] rounded-full hover:bg-blue-100 ${
-          location.pathname === "/" ? "bg-white" : ""
+          location.pathname === "/home/order" ? "bg-white" : ""
         }`}
       >
         <i className="pi pi-book text-xl"></i>

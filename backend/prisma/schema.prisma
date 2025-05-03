@@ -41,7 +41,7 @@ model Order {
   items    OrderItem[]
 
   description String // Esse apenas para o cliente 
-  observation String // Esse apenas para quem for atualizar pedido pode escrever algo ali 
+  
 
   receipt_date DateTime
   return_date  DateTime

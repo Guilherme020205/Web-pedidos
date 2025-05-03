@@ -4,7 +4,7 @@ import prisma from '../../database';
 class ControllerEditOrder {
     async handle(req: Request, res: Response) {
         const { idOrder } = req.params;
-        const { statusId, observation } = req.body;
+        const { statusId } = req.body;
 
         try {
             const response = await prisma.order.update({
@@ -12,8 +12,7 @@ class ControllerEditOrder {
                     id: idOrder
                 },
                 data: {
-                    statusId, 
-                    observation
+                    statusId
                 }
             })
 

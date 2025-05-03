@@ -1,16 +1,20 @@
 import { Request, Response } from 'express';
 import prisma from '../../database';
 
-class ControllerListOrders {
+class ControllerListMyOrders {
     async handle(req: Request, res: Response) {
+        const { idUser } = req.params;
         try {
             const response = await prisma.order.findMany({
+                where: {
+                    userId: idUser
+                },
                 orderBy:{
                     updateAt: 'desc'
                 },
                 include: {
-                    items: true, 
-                    status: true, 
+                    items: true,
+                    status: true,
                     user: true
                 }
             });
@@ -23,4 +27,4 @@ class ControllerListOrders {
     }
 }
 
-export { ControllerListOrders }
+export { ControllerListMyOrders }

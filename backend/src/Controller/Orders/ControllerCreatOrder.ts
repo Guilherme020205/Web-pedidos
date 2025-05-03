@@ -3,20 +3,32 @@ import prisma from '../../database';
 
 class ControllerCreatOrder {
     async handle(req: Request, res: Response): Promise<void> {
-        const { statusId, description, observation, receipt_date, return_date, items } = req.body;
+        const { statusId, description, receipt_date, return_date, items } = req.body;
         const userId = req.userId;
+
         if (!userId) {
             res.status(400).json({ error: 'Usuário não autenticado' });
             return;
         }
 
         try {
+            const statusToUse = statusId ?? (
+                await prisma.status.findUnique({
+                    where: { name: 'Novo' },
+                    select: { id: true }
+                })
+            )?.id;
+
+            if (!statusToUse) {
+                res.status(400).json({ error: 'Status "Novo" não encontrado no banco.' });
+                return;
+            }
+
             const response = await prisma.order.create({
                 data: {
                     userId,
-                    statusId,
+                    statusId: statusToUse,
                     description,
-                    observation,
                     receipt_date: new Date(receipt_date),
                     return_date: new Date(return_date),
                     items: {
@@ -31,7 +43,6 @@ class ControllerCreatOrder {
                 }
             });
 
-
             res.status(201).json(response);
         } catch (error) {
             console.log(error);
@@ -40,4 +51,4 @@ class ControllerCreatOrder {
     }
 }
 
-export { ControllerCreatOrder }
+export { ControllerCreatOrder };

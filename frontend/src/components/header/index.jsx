@@ -49,14 +49,14 @@ const Header = () => {
             ref={menuRight}
             id="popup_menu_right"
             popupAlignment="right"
-            className="bg-white rounded-lg px-3 py-1 gap-2"
+            className="bg-white rounded-lg px-3 py-1 gap-2 "
           />
           <Button
             icon="pi pi-align-right"
             onClick={(event) => menuRight.current.toggle(event)}
             aria-controls="popup_menu_right"
             aria-haspopup
-            className="mr-2"
+            className="mr-2 "
           />
         </div>
       </div>

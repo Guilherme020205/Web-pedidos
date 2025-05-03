@@ -19,7 +19,6 @@ CREATE TABLE "orders" (
     "statusId" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "observation" TEXT NOT NULL,
     "receipt_date" TIMESTAMP(3) NOT NULL,
     "return_date" TIMESTAMP(3) NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

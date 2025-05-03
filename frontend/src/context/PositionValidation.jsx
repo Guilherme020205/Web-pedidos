@@ -16,3 +16,9 @@ export function useUserPosition() {
       return "u";
   }
 }
+
+export function useUserId() {
+  const { userData } = useContext(AuthContext);
+
+  return userData?.userId || null;
+}
