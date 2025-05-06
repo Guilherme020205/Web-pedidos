@@ -2,17 +2,15 @@ import React from "react";
 
 import { AuthProvider } from "./context/AuthContext";
 
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import HeaderWithLayout from "./components/HeaderWithLayout";
 
-import Teste from "./pages/teste";
-
 import ScreenLogin from "./pages/login/index";
 import ScreenHome from "./pages/home";
 import ScreenUser from "./pages/home/user";
-import ScreenOrder from './pages/home/order/index';
+import ScreenOrder from "./pages/home/order/index";
+import NewOrder from "./pages/home/order/newOrder/newOrder";
 import EditOrder from "./pages/home/order/listOrder/editOrder/editOrder";
 
 import ProtectedRoute from "./context/ProtectedRoute";
@@ -23,7 +21,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<ScreenLogin />} />
-          <Route path="/teste" element={<Teste />} />
           <Route
             path="/home"
             element={
@@ -50,6 +47,16 @@ function App() {
               <ProtectedRoute>
                 <HeaderWithLayout>
                   <ScreenOrder />
+                </HeaderWithLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/order/new"
+            element={
+              <ProtectedRoute>
+                <HeaderWithLayout>
+                  <NewOrder />
                 </HeaderWithLayout>
               </ProtectedRoute>
             }

@@ -23,6 +23,46 @@ function ScreenHome() {
                     Pedidos
                   </p>
                 </Link>
+                <Link
+                  to="/home/order/new"
+                  className="group bg-white rounded-xl flex flex-col justify-center items-center max-w-28 w-28 max-h-28 h-28"
+                >
+                  <i className="pi pi-plus text-2xl group-hover:text-3xl transition-all duration-300"></i>
+                  <p className="text-xs group-hover:text-2xl group-hover:underline transition-all duration-300 ">
+                    Novo
+                  </p>
+                  <p className="text-xs group-hover:text-2xl group-hover:underline transition-all duration-300 ">
+                    Pedido
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </section>
+          <section className="bg-gray-400 flex flex-col gap-2 p-2 w-[300px]">
+            <div className="flex flex-col gap-2 p-3">
+              <h2 className="font-bold text-gray-800">Usuários</h2>
+              <div className="flex flex-row gap-10 justify-center">
+                <Link
+                  to="/home/order"
+                  className="group bg-white rounded-xl flex flex-col justify-center items-center max-w-28 w-28 max-h-28 h-28"
+                >
+                  <i className="pi pi-book text-2xl group-hover:text-3xl transition-all duration-300"></i>
+                  <p className="text-xs group-hover:text-2xl group-hover:underline transition-all duration-300 ">
+                    Usuários
+                  </p>
+                </Link>
+                <Link
+                  to="/home/order/new"
+                  className="group bg-white rounded-xl flex flex-col justify-center items-center max-w-28 w-28 max-h-28 h-28"
+                >
+                  <i className="pi pi-plus text-2xl group-hover:text-3xl transition-all duration-300"></i>
+                  <p className="text-xs group-hover:text-2xl group-hover:underline transition-all duration-300 ">
+                    Novo
+                  </p>
+                  <p className="text-xs group-hover:text-2xl group-hover:underline transition-all duration-300 ">
+                    Usuário
+                  </p>
+                </Link>
               </div>
             </div>
           </section>

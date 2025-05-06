@@ -19,9 +19,9 @@ function ScreenOrder() {
       "
       >
         <h2 className="text-xl">ScreenOrder</h2>
+
         <Link
-          // to={"/home/order"}
-          // onClick={saveEdit}
+          to={"/home/order/new"}
           className="bg-blue-400 text-xs flex items-center justify-center py-1 px-3 rounded-md border-[2px] border-transparent hover:bg-blue-100 hover:border-blue-400 hover:border-solid transition duration-700"
         >
           Novo Pedido
