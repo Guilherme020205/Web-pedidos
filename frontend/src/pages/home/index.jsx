@@ -2,7 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 
 function ScreenHome() {
   return (
-    <div className="py-10 px-32 select-none">
+    <div
+      className="py-10 px-10 select-none
+      sm:py-10 sm:px-32
+    "
+    >
       <h1 className="font-bold text-2xl text-gray-900">Bem-vindo!</h1>
       <div className="flex flex-col justify-start">
         <div className="flex flex-col py-10 gap-5">
@@ -18,7 +22,7 @@ function ScreenHome() {
                   <p className="text-xs group-hover:text-2xl group-hover:underline transition-all duration-300 ">
                     Pedidos
                   </p>
-                </Link> 
+                </Link>
               </div>
             </div>
           </section>

@@ -41,7 +41,11 @@ function EditOrder() {
   }
 
   return (
-    <div className="py-10 px-32 flex flex-col select-none">
+    <div
+      className="py-10 px-3 flex flex-col select-none
+      sm:px-32
+      "
+    >
       <Link
         to={"/home/order"}
         className="bg-slate-400 flex items-center justify-center w-28 py-1 rounded-md 
@@ -51,7 +55,11 @@ function EditOrder() {
         ← Voltar
       </Link>
 
-      <div className="bg-gray-700 px-5 w-96 ml-16 mt-5 rounded-xl ">
+      <div
+        className="bg-gray-700 px-5 w-80 ml-16 mt-5 rounded-xl 
+        sm:w-96
+        "
+      >
         <div className="my-10">
           {listStatus.length > 0 ? (
             <div className="flex flex-col items-center gap-2">

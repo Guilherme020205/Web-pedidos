@@ -34,8 +34,13 @@ function ListOrders({ esperaProps }) {
   }, [esperaProps]);
 
   return (
-    <div className="w-[500px] bg-slate-300 px-5 py-10 flex flex-col gap-5 rounded-lg select-none">
-      <h2 className="font-bold text-gray-600 text-xs hover:underline select-none">
+    <div
+      className=" select-none flex flex-col gap-5 
+       sm:bg-slate-300 sm:w-[500px] sm:px-5 sm:py-10   
+       2xl:w-[800px]
+      "
+    >
+      <h2 className="font-bold text-gray-600 text-xs hover:underline select-none hidden sm:block">
         {esperaProps != "null" ? "Meus pedidos:" : "Todos os pedidos:"}
       </h2>
 
@@ -46,10 +51,14 @@ function ListOrders({ esperaProps }) {
           {orders.map((order) => (
             <AccordionTab
               key={order.id}
-              className="border p-3 rounded-md shadow-sm"
+              className="p-3 rounded-md shadow-sm"
               header={
-                <div className="flex flex-row justify-between items-center gap-2">
-                  <p className="ml-1 font-serif">
+                <div className="flex flex-row justify-between items-center">
+                  <p 
+                  className="ml-2 font-serif text-xs
+                    2xl:text-xl
+                  "
+                  >
                     {order.user?.name || "Sem usuário"}
                   </p>
                   <p
@@ -94,14 +103,13 @@ function ListOrders({ esperaProps }) {
                 </div>
 
                 {cargo !== "u" && (
-                <Link
-                  to={`/home/order/edit/${order.id}`}
-                  className="text-xs hover:underline hover:bg-green-100 py-1 px-2 rounded-xl"
-                >
-                  Editar Status
-                </Link>
+                  <Link
+                    to={`/home/order/edit/${order.id}`}
+                    className="text-xs hover:underline hover:bg-green-100 py-1 px-2 rounded-xl"
+                  >
+                    Editar Status
+                  </Link>
                 )}
-              
               </section>
               <br />
               <div className="flex flex-row justify-between">
