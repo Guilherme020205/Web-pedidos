@@ -150,7 +150,7 @@ function NewOrder() {
           <button
             type="button"
             onClick={addItem}
-            className="text-blue-600 underline text-sm"
+            className="text-primary-scooter_600 underline text-sm"
           >
             + Adicionar item
           </button>
@@ -158,9 +158,9 @@ function NewOrder() {
 
         <button
           type="submit"
-          className="bg-blue-400 px-4 py-2 rounded-md 
+          className="bg-primary-scooter_400 px-4 py-2 rounded-md 
                 border-[2px] border-transparent 
-                hover:bg-blue-100 hover:border-blue-400 hover:border-solid transition duration-700"
+                hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700"
         >
           Criar pedido
         </button>

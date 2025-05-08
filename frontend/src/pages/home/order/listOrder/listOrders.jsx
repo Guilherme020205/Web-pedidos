@@ -36,7 +36,7 @@ function ListOrders({ esperaProps }) {
   return (
     <div
       className=" select-none flex flex-col gap-5 
-       sm:bg-slate-300 sm:w-[500px] sm:px-5 sm:py-10   
+       sm:bg-slate-300 sm:w-[500px] sm:px-5 sm:py-0   
        2xl:w-[800px]
       "
     >

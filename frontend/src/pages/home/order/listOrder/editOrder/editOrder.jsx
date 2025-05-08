@@ -98,9 +98,9 @@ function EditOrder() {
           <Link
             to={"/home/order"}
             onClick={saveEdit}
-            className={`bg-blue-400 flex items-center justify-center py-1 rounded-md 
+            className={`bg-primary-scooter_400 flex items-center justify-center py-1 rounded-md 
             border-[2px] border-transparent 
-            hover:bg-blue-100 hover:border-blue-400 hover:border-solid transition duration-700
+            hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700
             ${newStatus !== "" ? "visible" : "hidden"}
             `}
           >

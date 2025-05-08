@@ -13,8 +13,8 @@ const ButtonsNavigate = () => {
     <> 
       <Link
         to="/home"
-        className={`p-[6px] rounded-full hover:bg-blue-100 ${
-          location.pathname === "/home" ? "bg-white" : ""
+        className={`p-[6px] rounded-full hover:bg-primary-scooter_100 ${
+          location.pathname === "/home" ? "bg-primary-scooter_300" : ""
         }`}
       >
         <i className="pi pi-home text-xl"></i>
@@ -24,8 +24,8 @@ const ButtonsNavigate = () => {
       <Link
         to="/home/user"
         className={
-          `p-[6px] rounded-full hover:bg-blue-100 ${
-          location.pathname === "/home/user" ? "bg-white" : ""
+          `p-[6px] rounded-full hover:bg-primary-scooter_100 ${
+          location.pathname === "/home/user" ? "bg-primary-scooter_300" : ""
         }`}
       >
         <i className="pi pi-users text-xl"></i>
@@ -33,8 +33,8 @@ const ButtonsNavigate = () => {
       )}
       <Link
         to="/home/order"
-        className={`p-[6px] rounded-full hover:bg-blue-100 ${
-          location.pathname === "/home/order" ? "bg-white" : ""
+        className={`p-[6px] rounded-full hover:bg-primary-scooter_100 ${
+          location.pathname === "/home/order" ? "bg-primary-scooter_300" : ""
         }`}
       >
         <i className="pi pi-book text-xl"></i>

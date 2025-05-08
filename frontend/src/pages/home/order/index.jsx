@@ -15,21 +15,20 @@ function ScreenOrder() {
     >
       <div
         className="
-      flex flex-row justify-between items-center mb-5
-      "
+        flex flex-row justify-between items-center mb-5"
       >
-        <h2 className="text-xl">ScreenOrder</h2>
+        <h2 className="font-bold text-2xl text-gray-900">Pedidos</h2>
 
         <Link
           to={"/home/order/new"}
-          className="bg-blue-400 text-xs flex items-center justify-center py-1 px-3 rounded-md border-[2px] border-transparent hover:bg-blue-100 hover:border-blue-400 hover:border-solid transition duration-700"
+          className="bg-primary-scooter_400 text-xs flex items-center justify-center py-1 px-3 rounded-md border-[2px] border-transparent hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700"
         >
           Novo Pedido
         </Link>
       </div>
       <div>
         <div className="block sm:hidden">
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-between gap-3">
             {cargo !== "u" && (
               <Accordion>
                 <AccordionTab

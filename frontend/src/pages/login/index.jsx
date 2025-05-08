@@ -5,7 +5,6 @@ import { api } from "./../../services/api";
 import { Eye, EyeOff } from "lucide-react";
 import { ToastContainer } from "react-toastify";
 import { msgError, msgInfo } from "../../alerts";
-
 function ScreenLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -59,7 +58,7 @@ function ScreenLogin() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="bg-slate-200 pl-3 py-1 rounded-md
-                border border-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                border border-gray-300 focus:border-primary-scooter_500 focus:ring-primary-scooter_500 focus:outline-none"
           />
           <div className="relative w-full max-w-xs">
             <input
@@ -68,7 +67,7 @@ function ScreenLogin() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-slate-200 pl-3 pr-10 py-1 rounded-md 
-                border border-gray-300 focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                border border-gray-300 focus:border-primary-scooter_500 focus:ring-primary-scooter_500 focus:outline-none"
             />
             <button
               type="button"
@@ -80,9 +79,9 @@ function ScreenLogin() {
           </div>
           <button
             type="submit"
-            className="bg-blue-400 py-1 rounded-md 
+            className="bg-primary-scooter_500 py-1 rounded-md 
                 border-[2px] border-transparent 
-                hover:bg-blue-100 hover:border-blue-400 hover:border-solid transition duration-700"
+                hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700"
           >
             Entrar
           </button>
