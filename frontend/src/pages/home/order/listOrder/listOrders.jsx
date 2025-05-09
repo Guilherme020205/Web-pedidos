@@ -1,20 +1,17 @@
 import { Accordion, AccordionTab } from "primereact/accordion";
 import { useEffect, useState } from "react";
 import { api } from "./../../../../services/api";
-import "./cssAccordion.css";
+import "../../../../css/cssAccordion.css";
 import { Link } from "react-router";
 import { useUserPosition } from "../../../../context/PositionValidation";
 
 function ListOrders({ esperaProps }) {
   const cargo = useUserPosition();
-  const [orders, setOrders] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [orders, setOrders] = useState(null);
 
   const listOrders = async () => {
     try {
-      setIsLoading(true);
-
-      if (esperaProps == "null") {
+      if (esperaProps === "null") {
         const response = await api.get("/order/list");
         setOrders(response.data);
       } else {
@@ -23,14 +20,14 @@ function ListOrders({ esperaProps }) {
       }
     } catch (error) {
       console.error("Erro ao listar pedidos:", error);
-    } finally {
-      setIsLoading(false);
+      setOrders([]); // garantir que não fique null em erro
     }
   };
 
   useEffect(() => {
-    if (esperaProps === undefined) return;
-    listOrders();
+    if (esperaProps !== undefined) {
+      listOrders();
+    }
   }, [esperaProps]);
 
   return (
@@ -44,7 +41,7 @@ function ListOrders({ esperaProps }) {
         {esperaProps != "null" ? "Meus pedidos:" : "Todos os pedidos:"}
       </h2>
 
-      {isLoading ? (
+      {orders === null ? (
         <p>Carregando pedidos...</p>
       ) : orders.length > 0 ? (
         <Accordion className="flex flex-col gap-1">
@@ -54,30 +51,16 @@ function ListOrders({ esperaProps }) {
               className="p-3 rounded-md shadow-sm"
               header={
                 <div className="flex flex-row justify-between items-center">
-                  <p 
-                  className="ml-2 font-serif text-xs
-                    2xl:text-xl
-                  "
-                  >
+                  <p className="ml-2 font-serif text-xs 2xl:text-xl">
                     {order.user?.name || "Sem usuário"}
                   </p>
                   <p
                     className={`font-serif py-1 px-3 rounded-md
                       ${order.status?.name === "Novo" ? "bg-blue-300" : ""}
-                      ${
-                        order.status?.name === "Iniciado" ? "bg-yellow-300" : ""
-                      }
+                      ${order.status?.name === "Iniciado" ? "bg-yellow-300" : ""}
                       ${order.status?.name === "Entregue" ? "bg-green-300" : ""}
-                      ${
-                        order.status?.name === "Não devolvido"
-                          ? "bg-red-300"
-                          : ""
-                      }
-                      ${
-                        order.status?.name === "Finalizado"
-                          ? "bg-purple-300"
-                          : ""
-                      }
+                      ${order.status?.name === "Não devolvido" ? "bg-red-300" : ""}
+                      ${order.status?.name === "Finalizado" ? "bg-purple-300" : ""}
                       ${order.status?.name === "Cancelado" ? "bg-gray-300" : ""}
                     `}
                   >
@@ -105,7 +88,7 @@ function ListOrders({ esperaProps }) {
                 {cargo !== "u" && (
                   <Link
                     to={`/home/order/edit/${order.id}`}
-                    className="text-xs hover:underline hover:bg-green-100 py-1 px-2 rounded-xl"
+                    className="text-xs hover:underline hover:primary-scooter_300 py-1 px-2 rounded-xl"
                   >
                     Editar Status
                   </Link>

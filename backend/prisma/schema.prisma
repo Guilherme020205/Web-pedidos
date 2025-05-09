@@ -20,7 +20,7 @@ model User {
   name       String
   email      String    @unique
   user       String    @unique
-  Position   Position? @relation(fields: [positionId], references: [id])
+  position   Position? @relation(fields: [positionId], references: [id])
   positionId String?
   password   String
   orders     Order[]

@@ -10,6 +10,9 @@ class ControllerListOneUser {
             const response = await prisma.user.findUnique({
                 where: {
                     id: idUser
+                },
+                include: {
+                    position: true
                 }
             })
             if (!response) {

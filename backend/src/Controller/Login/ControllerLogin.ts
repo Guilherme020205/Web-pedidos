@@ -16,7 +16,7 @@ class ControllerLogin {
                     user: username
                 },
                 include: {
-                    Position: true // traz o nome do cargo
+                    position: true // traz o nome do cargo
                 }
             });
 
@@ -44,7 +44,7 @@ class ControllerLogin {
                     userId: userExist.id,
                     name: userExist.name,
                     email: userExist.email,
-                    cargo: userExist.Position?.name || 'sem cargo'
+                    cargo: userExist.position?.name || 'sem cargo'
                 },
                 process.env.JWT_SECRET as string,
                 { expiresIn: '30d' }

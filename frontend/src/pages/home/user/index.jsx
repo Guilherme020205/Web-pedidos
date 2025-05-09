@@ -1,10 +1,12 @@
 import { Link } from "react-router";
+import ListUsers from "./listUsers/listUsers";
 
 function ScreenUser() {
   return (
     <div
-      className="
-    py-10 px-5 select-none"
+      className="py-10 px-10 select-none
+      sm:py-10 sm:px-32
+    "
     >
       <div
         className="
@@ -16,8 +18,11 @@ function ScreenUser() {
           to={"/home/order/new"}
           className="bg-primary-scooter_400 text-xs flex items-center justify-center py-1 px-3 rounded-md border-[2px] border-transparent hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700"
         >
-          Novo Pedido
+          Novo usuario
         </Link>
+      </div>
+      <div>
+        <ListUsers />
       </div>
     </div>
   );
