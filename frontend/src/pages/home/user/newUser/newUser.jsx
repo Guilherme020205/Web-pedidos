@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router";
-import { api } from "../../../../../services/api";
+import { api } from "../../../../services/api";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { msgError, msgInfo } from "../../../../../alerts";
+import { msgError, msgInfo } from "../../../../alerts";
 
 function EditUser() {
   const navigate = useNavigate();

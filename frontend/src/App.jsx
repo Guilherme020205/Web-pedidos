@@ -12,7 +12,7 @@ import ScreenUser from "./pages/home/user";
 import ScreenOrder from "./pages/home/order/index";
 
 import EditUser from "./pages/home/user/listUsers/editUser/editUser";
-import NewUser from './pages/home/user/listUsers/newUser/newUser';
+import NewUser from './pages/home/user/newUser/newUser';
 
 import NewOrder from "./pages/home/order/newOrder/newOrder";
 import EditOrder from "./pages/home/order/listOrder/editOrder/editOrder";

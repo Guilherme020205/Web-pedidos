@@ -1,6 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useUserPosition } from './../../context/PositionValidation';
 
 function ScreenHome() {
+  const cargo = useUserPosition();
+
   return (
     <div
       className="py-10 px-10 select-none
@@ -38,6 +41,7 @@ function ScreenHome() {
               </div>
             </div>
           </section>
+          {cargo !== "u" && (
           <section className="bg-gray-400 flex flex-col gap-2 p-2 w-[300px]">
             <div className="flex flex-col gap-2 p-3">
               <h2 className="font-bold text-gray-800">Usuários</h2>
@@ -66,6 +70,7 @@ function ScreenHome() {
               </div>
             </div>
           </section>
+          )}
         </div>
       </div>
     </div>
