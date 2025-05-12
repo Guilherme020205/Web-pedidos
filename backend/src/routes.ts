@@ -18,6 +18,7 @@ import { ControllerListOrders } from './Controller/Orders/ControllerListOrders';
 import { ControllerListMyOrders } from './Controller/Orders/ControllerListMyOrders';
 import { ControllerListOneOrder } from './Controller/Orders/ControllerListOneOrder';
 import { ControllerEditOrder } from './Controller/Orders/ControllerEditOrder';
+import { ControllerEditPasswordUser } from './Controller/User/ControllerEditPasswordUser';
  
 router.get("/status/list", new ControllerListStatus().handle)
 router.get("/positions/list", new ControllerListPositions().handle)
@@ -26,6 +27,7 @@ router.post("/login", new ControllerLogin().handle)
 
 router.post("/user/creat", authenticate, new ControllerCreatUser().handle);
 router.put("/user/edit/:idUser", authenticate, new ControllerEditUser().handle)
+router.put("/user/edit/password/:idUser", authenticate, new ControllerEditPasswordUser().handle)
 router.get("/user/list", authenticate, new ControllerListUsers().handle)
 router.get("/user/list/:idUser", authenticate, new ControllerListOneUser().handle)
 
