@@ -5,6 +5,8 @@ import { api } from "./../../services/api";
 import { Eye, EyeOff } from "lucide-react";
 import { ToastContainer } from "react-toastify";
 import { msgError, msgInfo } from "../../alerts";
+import imagembackground from "../../imgs/fundo_login.png"
+
 function ScreenLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -33,8 +35,15 @@ function ScreenLogin() {
     }
   };
 
+  const backgroundimagem = imagembackground
+
   return (
     <div
+      style={{
+        backgroundImage: `url(${backgroundimagem})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
       className="h-screen flex items-center justify-center select-none
       md:justify-end md:pr-56
       "

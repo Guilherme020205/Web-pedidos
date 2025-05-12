@@ -7,8 +7,9 @@ import "primeicons/primeicons.css";
 
 import { AuthContext } from "../../context/AuthContext";
 import ButtonsNavigate from "./buttonsNavigate";
+import logoImg from "../../imgs/logo.png"
 
-const logo = "";
+const logo = logoImg;
 
 const Header = () => {
   const menuRight = useRef(null);
@@ -34,7 +35,7 @@ const Header = () => {
 
   return (
     <div className="bg-primary-scooter_500 h-11 flex flex-row justify-between items-center px-[5%]">
-      {logo ? <img src={logo} alt="logo" className="w-32" /> : <p>Logo</p>}
+      {logo ? <img src={logo} alt="logo" className="w-12" /> : <p>Logo</p>}
 
       <div className="flex flex-row gap-4">
         <ButtonsNavigate/>
