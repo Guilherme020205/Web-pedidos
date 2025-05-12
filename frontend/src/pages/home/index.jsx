@@ -43,7 +43,7 @@ function ScreenHome() {
               <h2 className="font-bold text-gray-800">Usuários</h2>
               <div className="flex flex-row gap-10 justify-center">
                 <Link
-                  to="/home/order"
+                  to="/home/user/"
                   className="group bg-white rounded-xl flex flex-col justify-center items-center max-w-28 w-28 max-h-28 h-28"
                 >
                   <i className="pi pi-book text-2xl group-hover:text-3xl transition-all duration-300"></i>
@@ -52,7 +52,7 @@ function ScreenHome() {
                   </p>
                 </Link>
                 <Link
-                  to="/home/order/new"
+                  to="/home/user/new"
                   className="group bg-white rounded-xl flex flex-col justify-center items-center max-w-28 w-28 max-h-28 h-28"
                 >
                   <i className="pi pi-plus text-2xl group-hover:text-3xl transition-all duration-300"></i>

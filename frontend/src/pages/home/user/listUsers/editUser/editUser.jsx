@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { api } from "../../../../../services/api";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -86,8 +86,17 @@ function EditUser() {
   }
 
   return (
-    <div className="py-10 px-10 sm:py-10 sm:px-32">
+    <div className="py-10 px-10 sm:py-10 sm:px-32 select-none">
       <div className="flex flex-col gap-5 w-96">
+        <Link
+          to={"/home/user"}
+          className="bg-slate-400 flex items-center justify-center w-28 py-1 rounded-md 
+            border-[2px] border-transparent 
+            hover:bg-slate-100 hover:border-slate-400 hover:border-solid transition duration-700"
+        >
+          ← Voltar
+        </Link>
+        <p className="text-xl font-bold ">Editar usuario</p>
         <div className="flex flex-row items-center gap-5">
           <label htmlFor="active">Usuário ativo/inativo:</label>
           <input
@@ -155,7 +164,7 @@ function EditUser() {
 
         <button
           onClick={atualizarUser}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="mt-4 px-4 py-2 bg-primary-scooter_400 text-xs flex items-center justify-center  rounded-md border-[2px] border-transparent hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700"
         >
           Atualizar Usuário
         </button>
@@ -201,7 +210,7 @@ function EditUser() {
               </button>
               <button
                 onClick={handleChangePassword}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                className="bg-primary-scooter_400 text-xs flex items-center justify-center py-1 px-3 rounded-md border-[2px] border-transparent hover:bg-primary-scooter_100 hover:border-primary-scooter_400 hover:border-solid transition duration-700"
               >
                 Confirmar
               </button>

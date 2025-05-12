@@ -54,7 +54,7 @@ function EditOrder() {
       >
         ← Voltar
       </Link>
-
+      <p className="text-xl font-bold mt-5">Editar status do pedido</p>
       <div
         className="bg-gray-700 px-5 w-80 ml-16 mt-5 rounded-xl 
         sm:w-96

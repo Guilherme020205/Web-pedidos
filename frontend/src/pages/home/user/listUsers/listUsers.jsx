@@ -41,6 +41,7 @@ function ListUsers() {
                   <p className="ml-2 font-serif text-xs 2xl:text-xl">
                     {user?.name || "Sem usuário"}
                   </p>
+                  {user.isActive ? <p className="text-xs bg-green-100 rounded-md px-5 py-1">Ativo</p> : <p className="text-xs bg-red-100 rounded-md px-5 py-1">Inativo</p>}
                 </div>
               }
             >
@@ -67,10 +68,22 @@ function ListUsers() {
                 </Link>
               </div>
               <div className="flex flex-col">
-                    <p><strong className="text-xs">nome: </strong>{user.name}</p>
-                    <p><strong className="text-xs">email: </strong>{user.email}</p>
-                    <p><strong className="text-xs">usuário: </strong>{user.user}</p>
-                    <p><strong className="text-xs">cargo: </strong>{user.position?.name}</p>
+                <p>
+                  <strong className="text-xs">nome: </strong>
+                  {user.name}
+                </p>
+                <p>
+                  <strong className="text-xs">email: </strong>
+                  {user.email}
+                </p>
+                <p>
+                  <strong className="text-xs">usuário: </strong>
+                  {user.user}
+                </p>
+                <p>
+                  <strong className="text-xs">cargo: </strong>
+                  {user.position?.name}
+                </p>
               </div>
             </AccordionTab>
           ))}

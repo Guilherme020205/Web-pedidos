@@ -9,9 +9,11 @@ import HeaderWithLayout from "./components/HeaderWithLayout";
 import ScreenLogin from "./pages/login/index";
 import ScreenHome from "./pages/home";
 import ScreenUser from "./pages/home/user";
-import EditUser from "./pages/home/user/listUsers/editUser/editUser";
-
 import ScreenOrder from "./pages/home/order/index";
+
+import EditUser from "./pages/home/user/listUsers/editUser/editUser";
+import NewUser from './pages/home/user/listUsers/newUser/newUser';
+
 import NewOrder from "./pages/home/order/newOrder/newOrder";
 import EditOrder from "./pages/home/order/listOrder/editOrder/editOrder";
 
@@ -49,6 +51,16 @@ function App() {
               <ProtectedRoute>
                 <HeaderWithLayout>
                   <EditUser />
+                </HeaderWithLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/user/new"
+            element={
+              <ProtectedRoute>
+                <HeaderWithLayout>
+                  <NewUser />
                 </HeaderWithLayout>
               </ProtectedRoute>
             }
