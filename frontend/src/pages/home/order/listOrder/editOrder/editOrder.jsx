@@ -33,7 +33,6 @@ function EditOrder() {
       const response = await api.put(`/order/edit/${idOrder}`, {
         statusId: newStatus,
       });
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);

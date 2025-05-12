@@ -10,7 +10,6 @@ function ListUsers() {
   const listUser = async () => {
     try {
       const response = await api.get("/user/list");
-      console.log(response.data);
       setUsers(response.data);
     } catch (error) {
       console.log(error);
